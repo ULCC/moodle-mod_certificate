@@ -48,7 +48,11 @@ class mod_certificate_portfolio_caller extends portfolio_module_caller_base {
      * @see write_new_file()
      */
     public function prepare_package() {
-        // TODO: Implement prepare_package() method.
+        /**
+         * @var $exporter portfolio_exporter
+         */
+        $exporter = $this->get('exporter');
+        return $exporter->write_new_file($this->get_pdf_content(), $this->get_certificate_instance_name()."_certificate.pdf");
     }
 
     /**
@@ -89,5 +93,35 @@ class mod_certificate_portfolio_caller extends portfolio_module_caller_base {
         global $DB;
 
         return $DB->get_record('certificate', array('id' => $this->certificateid));
+    }
+
+    /**
+     * Returns the name of this certificate activity.
+     *
+     * @return string
+     */
+    private function get_certificate_instance_name() {
+        return $this->get_certificate_record()->name;
+    }
+
+    /**
+     * Returns a string of data that can be written into a new PDF file.
+     */
+    private function get_pdf_content() {
+        global $CFG;
+
+        $certificate = $this->get_certificate_record();
+
+        // Ugly way to set the variable :(
+        /**
+         * @var $pdf PDF
+         */
+        $pdf = '';
+
+        require("$CFG->dirroot/mod/certificate/type/$certificate->certificatetype/certificate.php");
+
+        // PDF contents are now in $file_contents as a string
+        return $pdf->Output('', 'S');
+
     }
 }
