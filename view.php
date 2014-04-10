@@ -32,6 +32,7 @@ global $CFG, $PAGE, $DB, $USER, $OUTPUT;
 require_once("$CFG->dirroot/mod/certificate/deprecatedlib.php");
 require_once("$CFG->dirroot/mod/certificate/lib.php");
 require_once("$CFG->libdir/pdflib.php");
+require_once("$CFG->libdir/portfoliolib.php");
 
 $id = required_param('id', PARAM_INT);    // Course Module ID
 $action = optional_param('action', '', PARAM_ALPHA);
