@@ -28,7 +28,7 @@ class mod_certificate_portfolio_caller extends portfolio_module_caller_base {
      * the download portfolio plugin doesn't care )
      */
     public function expected_time() {
-        return 2; // Assuming seconds?
+        return PORTFOLIO_TIME_LOW;
     }
 
     /**
@@ -63,7 +63,9 @@ class mod_certificate_portfolio_caller extends portfolio_module_caller_base {
      * Load data
      */
     public function load_data() {
-        // TODO: Implement load_data() method.
+        if (!$this->get_certificate_record()) {
+            throw new portfolio_caller_exception('invalidcertificateid', 'certificate');
+        }
     }
 
     /**
