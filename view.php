@@ -25,6 +25,10 @@
  */
 
 require_once("../../config.php");
+
+global $CFG, $PAGE, $DB, $USER, $OUTPUT;
+
+
 require_once("$CFG->dirroot/mod/certificate/deprecatedlib.php");
 require_once("$CFG->dirroot/mod/certificate/lib.php");
 require_once("$CFG->libdir/pdflib.php");
@@ -114,6 +118,8 @@ if (empty($action)) { // Not displaying PDF
     if ($attempts = certificate_get_attempts($certificate->id)) {
         echo certificate_print_attempts($course, $certificate, $attempts);
     }
+
+    $str = '';
     if ($certificate->delivery == 0)    {
         $str = get_string('openwindow', 'certificate');
     } elseif ($certificate->delivery == 1)    {
@@ -131,8 +137,19 @@ if (empty($action)) { // Not displaying PDF
     $button->add_action(new popup_action('click', $link, 'view'.$cm->id, array('height' => 600, 'width' => 800)));
 
     echo html_writer::tag('div', $OUTPUT->render($button), array('style' => 'text-align:center'));
+
+    // Portfolio button
+    $button = new portfolio_add_button();
+    $button->set_callback_options('certificate_portfolio_caller',
+                                  array('certificateid' => $certificate->id), 'mod_certificate');
+    $button->set_format_by_intended_file('pdf');
+    echo $button->to_html(PORTFOLIO_ADD_ICON_LINK);
+
+
     echo $OUTPUT->footer($course);
+
     exit;
+
 } else { // Output to pdf
     // Remove full-stop at the end if it exists, to avoid "..pdf" being created and being filtered by clean_filename
     $certname = rtrim($certificate->name, '.');
