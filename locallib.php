@@ -10,6 +10,13 @@ class mod_certificate_portfolio_caller extends portfolio_module_caller_base {
      */
     protected $certificateid;
 
+    public function __contsruct($params = null) {
+
+        parent::__construct($params);
+
+        $this->cm = $this->get_coursemodule();
+    }
+
     /**
      * @return array|void
      */
