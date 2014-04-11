@@ -10,7 +10,10 @@ class mod_certificate_portfolio_caller extends portfolio_module_caller_base {
      */
     protected $certificateid;
 
-    public function __contsruct($params = null) {
+    /**
+     * @param null $params
+     */
+    public function __construct($params = null) {
 
         parent::__construct($params);
 
