@@ -77,7 +77,7 @@ class mod_certificate_portfolio_caller extends portfolio_module_caller_base {
      * @return context_module
      */
     private function get_context() {
-        return context_module::instance($this->certificateid);
+        return context_module::instance($this->get_coursemodule()->id);
     }
 
     /**
