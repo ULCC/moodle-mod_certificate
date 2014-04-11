@@ -124,4 +124,11 @@ class mod_certificate_portfolio_caller extends portfolio_module_caller_base {
         // PDF contents are now in $file_contents as a string
         return $pdf->Output('', 'S');
     }
+
+    /**
+     * @return array
+     */
+    public static function base_supported_formats() {
+        return array(PORTFOLIO_FORMAT_FILE);
+    }
 }
