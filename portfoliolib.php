@@ -52,7 +52,8 @@ class mod_certificate_portfolio_caller extends portfolio_module_caller_base {
          * @var $exporter portfolio_exporter
          */
         $exporter = $this->get('exporter');
-        return $exporter->write_new_file($this->get_pdf_content(), $this->get_certificate_instance_name()."_certificate.pdf");
+        return $exporter->write_new_file($this->get_pdf_content(),
+                                         $this->get_certificate_instance_name() . "_certificate.pdf");
     }
 
     /**
@@ -122,6 +123,5 @@ class mod_certificate_portfolio_caller extends portfolio_module_caller_base {
 
         // PDF contents are now in $file_contents as a string
         return $pdf->Output('', 'S');
-
     }
 }
