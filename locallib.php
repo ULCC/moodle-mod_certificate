@@ -59,9 +59,11 @@ class mod_certificate_portfolio_caller extends portfolio_module_caller_base {
     /**
      * Callback to do whatever capability checks required
      * in the caller (called during the export process
+     *
+     * @return bool
      */
     public function check_permissions() {
-        require_capability('mod/certificate:view', $this->get_context());
+        return has_capability('mod/certificate:view', $this->get_context());
     }
 
     /**
@@ -93,7 +95,13 @@ class mod_certificate_portfolio_caller extends portfolio_module_caller_base {
     private function get_certificate_record() {
         global $DB;
 
-        return $DB->get_record('certificate', array('id' => $this->certificateid));
+        static $certificate;
+
+        if (!isset($certificate)) {
+            $certificate = $DB->get_record('certificate', array('id' => $this->certificateid));
+        }
+
+        return $certificate;
     }
 
     /**
