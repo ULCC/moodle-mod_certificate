@@ -5,6 +5,7 @@ defined('MOODLE_INTERNAL') || die();
 global $CFG;
 
 require_once("$CFG->libdir/pdflib.php");
+require_once("$CFG->dirroot/mod/certificate/lib.php");
 
 /**
  * Handles the portfolio button being pressed.
