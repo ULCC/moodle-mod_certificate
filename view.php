@@ -27,6 +27,10 @@ require_once("../../config.php");
 require_once("$CFG->dirroot/mod/certificate/locallib.php");
 require_once("$CFG->dirroot/mod/certificate/deprecatedlib.php");
 require_once("$CFG->libdir/pdflib.php");
+require_once("$CFG->libdir/portfoliolib.php");
+
+global $CFG, $PAGE, $DB, $USER, $OUTPUT;
+
 
 $id = required_param('id', PARAM_INT);    // Course Module ID
 $action = optional_param('action', '', PARAM_ALPHA);
@@ -133,6 +137,14 @@ if (empty($action)) { // Not displaying PDF
     }
 
     echo html_writer::tag('div', $OUTPUT->render($button), array('style' => 'text-align:center'));
+
+    // Portfolio button
+    $button = new portfolio_add_button();
+    $button->set_callback_options('certificate_portfolio_caller',
+                                          array('certificateid' => $certificate->id), 'mod_certificate');
+    $button->set_format_by_intended_file('pdf');
+    echo $button->to_html(PORTFOLIO_ADD_ICON_LINK);
+
     echo $OUTPUT->footer($course);
     exit;
 } else { // Output to pdf
