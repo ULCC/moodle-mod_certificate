@@ -99,7 +99,7 @@ certificate_print_image($pdf, $certificate, CERT_IMAGE_SIGNATURE, $sigx, $sigy, 
 $path = "$CFG->dirroot/mod/certificate/pix/seals/";
 
 //The royal college of midwives
-$pdf->Image($path."RCM_logo.png", $rcmx , $rcmy, 50, 30);
+$pdf->Image($path."new-rcm-logo-l.jpg", $rcmx , $rcmy, 50, 30);
 $pdf->SetAlpha(1);
 
 $cfont	=	"helvetica";

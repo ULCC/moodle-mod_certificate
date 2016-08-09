@@ -158,7 +158,7 @@ $pdf->SetAlpha(1);
 //The royal college of midwives
 
 $pdf->Image($path."rcm_i-learn_logo_120.jpg", $rcmx , $rcmy, 25, 25);
-$pdf->Image($path."RCM_logo.png", $mlgx, $mlgy, 50, 30);
+$pdf->Image($path."new-rcm-logo-l.jpg", $mlgx, $mlgy, 50, 30);
 $pdf->Image($path."i-folio_logo_120b.jpg", $rlgx, $rlgy, 25, 25);
 
 
