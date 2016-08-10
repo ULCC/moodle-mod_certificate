@@ -210,5 +210,8 @@ $string['viewtranscript'] = 'View Certificates';
 $string['watermark'] = 'Watermark';
 $string['attended'] = 'Attended';
 $string['rcmaddress'] = '15 Mansfield St, London W1G 9NH';
+$string['title'] = 'CERTIFICATE of ACHIEVEMENT';
+$string['titleattendance'] = 'CERTIFICATE of ATTENDANCE';
+$string['hascompleted'] = 'has completed';
 
 
