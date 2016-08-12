@@ -112,8 +112,8 @@ certificate_print_text($pdf, $x, $y + 20, 'C', $cfont, '', 20, get_string('certi
 certificate_print_text($pdf, $x, $y + 36, 'C', $cfont, '', 30, fullname($USER));
 certificate_print_text($pdf, $x, $y + 55, 'C', $cfont, '', 16, get_string('attended', 'certificate'));
 certificate_print_text($pdf, $x, $y + 70, 'C', $cfont, '', 20, $course->fullname);
-certificate_print_text($pdf, $x, $y + 82, 'C', $cfont, '', 14, certificate_get_date($certificate, $certrecord, $course));
-certificate_print_text($pdf, $x, $y + 91, 'C', $cfont, '', 8,  certificate_get_grade($certificate, $course));
+certificate_print_text($pdf, $x, $y + 87, 'C', $cfont, '', 14, certificate_get_date($certificate, $certrecord, $course));
+certificate_print_text($pdf, $x, $y + 96, 'C', $cfont, '', 8,  certificate_get_grade($certificate, $course));
 
 
 certificate_print_text($pdf, $x, $y + 112, 'C', $cfont, '', 10, certificate_get_outcome($certificate, $course));

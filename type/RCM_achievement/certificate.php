@@ -106,7 +106,7 @@ $certifyy = 75;
     $addx = 20;
     $addy = 270;
 $datx  = 10;
-$daty  = 157;
+$daty  = 160;
 $outx  = 10;
 $outy  = 177;
 $comx = 10;
@@ -178,7 +178,7 @@ certificate_print_text($pdf, $namx, $namy, 'C', $cfont, '', 30, fullname($USER))
 certificate_print_text($pdf, $comx, $comy, 'C', $cfont, '', 16, get_string('hascompleted', 'certificate'));
 certificate_print_text($pdf, $modx, $mody, 'C', $cfont, '', 20, $course->fullname);
 certificate_print_text($pdf, $x, $y + 85, 'C', $cfont, '', 14, "in i-learn");
-certificate_print_text($pdf, $datx, $daty + 7, 'C', $cfont, '', 14,  certificate_get_date($certificate, $certrecord, $course));
+certificate_print_text($pdf, $datx+10, $daty + 7, 'C', $cfont, '', 14,  certificate_get_date($certificate, $certrecord, $course));
 certificate_print_text($pdf, $outx, $outy + 5, 'C', $cfont, '', 10, certificate_get_outcome($certificate, $course));
 
 
