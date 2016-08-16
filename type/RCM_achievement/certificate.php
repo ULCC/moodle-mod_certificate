@@ -52,7 +52,7 @@ if ($certificate->orientation == 'L') {
     $rcmx = 20;
     $rcmy = 20;
     $mlgy = 20;
-    $mlgx = 120;
+    $mlgx = 122;
     $rlgy = 20;
     $rlgx = 252;
     $addx = 20;
@@ -99,7 +99,7 @@ $certifyy = 75;
     $rcmx = 20;
     $rcmy = 20;
     $mlgy = 20;
-    $mlgx = 80;
+    $mlgx = 72;
     $rlgy = 20;
     $rlgx = 165;
 
@@ -158,7 +158,7 @@ $pdf->SetAlpha(1);
 //The royal college of midwives
 
 $pdf->Image($path."rcm_i-learn_logo_120.jpg", $rcmx , $rcmy, 25, 25);
-$pdf->Image($path."new-rcm-logo-l.jpg", $mlgx, $mlgy, 50, 30);
+$pdf->Image($path."new-rcm-logo-l.jpg", $mlgx, $mlgy, 68, 30);
 $pdf->Image($path."i-folio_logo_120b.jpg", $rlgx, $rlgy, 25, 25);
 
 
