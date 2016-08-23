@@ -46,6 +46,13 @@ if (!$certificate = $DB->get_record('certificate', array('id'=> $cm->instance)))
     print_error('course module is incorrect');
 }
 
+// Check visibility of activity to current user; if not visible return them to the course with
+// a message saying it is hidden
+if ($cm && !$cm->uservisible) {
+    redirect(new moodle_url('/course/view.php',array('id'=>$cm->course)), get_string('certificatehidden', 'certificate'));
+}
+
+
 require_login($course, false, $cm);
 $context = context_module::instance($cm->id);
 require_capability('mod/certificate:view', $context);
