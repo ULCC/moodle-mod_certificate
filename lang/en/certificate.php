@@ -213,7 +213,7 @@ $string['rcmaddress'] = '15 Mansfield St, London W1G 9NH';
 $string['title'] = 'CERTIFICATE of ACHIEVEMENT';
 $string['titleattendance'] = 'CERTIFICATE of ATTENDANCE';
 $string['hascompleted'] = 'has completed';
-$string['certificatehidden']    =   'Your certificate is currently unavailable. PLease ensure you have worked through every page of content,
+$string['certificatehidden']    =   'Your certificate is currently unavailable. Please ensure you have worked through every page of content,
 completed the course evaluation. Once these are completed your certificate will become available';
 
 
