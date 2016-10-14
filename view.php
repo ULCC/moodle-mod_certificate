@@ -48,7 +48,7 @@ if (!$certificate = $DB->get_record('certificate', array('id'=> $cm->instance)))
 
 // Check visibility of activity to current user; if not visible return them to the course with
 // a message saying it is hidden
-if ($cm && !$cm->uservisible) {
+if ($cm && !\core_availability\info_module::is_user_visible($cm->id,$USER->id)) {
     redirect(new moodle_url('/course/view.php',array('id'=>$cm->course)), get_string('certificatehidden', 'certificate'));
 }
 
