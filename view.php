@@ -26,6 +26,7 @@
 require_once("../../config.php");
 require_once("$CFG->dirroot/mod/certificate/locallib.php");
 require_once("$CFG->dirroot/mod/certificate/deprecatedlib.php");
+require_once("$CFG->dirroot/availability/classes/info_module.php");
 require_once("$CFG->libdir/pdflib.php");
 require_once("$CFG->libdir/portfoliolib.php");
 
