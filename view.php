@@ -151,7 +151,7 @@ if (empty($action)) { // Not displaying PDF
     $button->set_callback_options('mod_certificate_portfolio_caller',
                                           array('certificateid' => $certificate->id), 'mod_certificate');
     $button->set_format_by_intended_file('pdf');
-    echo $button->to_html(PORTFOLIO_ADD_ICON_LINK);
+    echo $button->to_html(PORTFOLIO_ADD_FULL_FORM);
 
     echo $OUTPUT->footer($course);
     exit;
@@ -161,6 +161,7 @@ if (empty($action)) { // Not displaying PDF
     $CFG->debugdisplay = 0;
     @ini_set('display_errors', '0');
     @ini_set('log_errors', '1');
+    
 
     $filename = certificate_get_certificate_filename($certificate, $cm, $course) . '.pdf';
 
